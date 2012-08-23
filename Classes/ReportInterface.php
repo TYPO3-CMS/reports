@@ -1,10 +1,10 @@
 <?php
-namespace TYPO3\CMS\Reports\ViewHelpers;
+namespace TYPO3\CMS\Reports;
 
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2012 Georg Ringer <typo3@ringerge.org>
+ *  (c) 2009-2011 Ingo Renner <ingo@typo3.org>
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -15,6 +15,9 @@ namespace TYPO3\CMS\Reports\ViewHelpers;
  *
  *  The GNU General Public License can be found at
  *  http://www.gnu.org/copyleft/gpl.html.
+ *  A copy is found in the textfile GPL.txt and important notices to the license
+ *  from the author is found in LICENSE.txt distributed with these scripts.
+ *
  *
  *  This script is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -24,34 +27,21 @@ namespace TYPO3\CMS\Reports\ViewHelpers;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 /**
- * Render the icon of a report
+ * Interface for classes which provide a report.
  *
+ * @author Ingo Renner <ingo@typo3.org>
  * @package TYPO3
  * @subpackage tx_reports
  */
-class IconViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Be\AbstractBackendViewHelper {
-
+interface ReportInterface
+{
 	/**
-	 * Renders the icon
+	 * Returns the content for a report
 	 *
-	 * @param string $icon Icon to be used
-	 * @param string $title Optional title
-	 * @return strin Content rendered image
+	 * @return string A reports rendered HTML
 	 */
-	public function render($icon, $title = '') {
-		if (!empty($icon)) {
-			$absIconPath = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFilename($icon);
-			if (file_exists($absIconPath)) {
-				$icon = ($GLOBALS['BACK_PATH'] . '../') . str_replace(PATH_site, '', $absIconPath);
-			}
-		} else {
-			$icon = \TYPO3\CMS\Core\Extension\ExtensionManager::extRelPath('reports') . 'Resources/Public/moduleicon.gif';
-		}
-		$content = ((((('<img' . \t3lib_iconworks::skinImg($GLOBALS['BACK_PATH'], $icon, 'width="16" height="16"')) . ' title="') . htmlspecialchars($title)) . '" alt="') . htmlspecialchars($title)) . '" />';
-		return $content;
-	}
+	public function getReport();
 
 }
-
 
 ?>
