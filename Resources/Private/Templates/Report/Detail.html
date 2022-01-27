@@ -2,6 +2,14 @@
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     data-namespace-typo3-fluid="true"
 >
-<h1><f:translate key="LLL:EXT:reports/Resources/Private/Language/locallang.xlf:title" /></h1>
-{content -> f:transform.html()}
+
+<f:layout name="Module" />
+
+<f:section name="Content">
+
+    <h1><f:translate key="LLL:EXT:reports/Resources/Private/Language/locallang.xlf:title" /></h1>
+    {content -> f:transform.html()}
+
+</f:section>
+
 </html>
