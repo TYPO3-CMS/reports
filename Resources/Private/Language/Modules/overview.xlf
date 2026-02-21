@@ -7,7 +7,7 @@
         <source>System monitoring and analysis reports</source>
       </trans-unit>
       <trans-unit id="description">
-        <source>Access various system reports for monitoring and analyzing your TYPO3 installation including system status checks, database statistics, and custom reports provided by extensions.</source>
+        <source>Access reports for monitoring and analyzing the TYPO3 installation including system status checks, database statistics, and custom reports provided by extensions.</source>
       </trans-unit>
       <trans-unit id="title">
         <source>Reports</source>

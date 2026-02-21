@@ -7,7 +7,7 @@
         <source>Get a status report about your site's operation and any detected problems.</source>
       </trans-unit>
       <trans-unit id="description">
-        <source>Here you can find a short overview of your site's parameters as well as any problems detected with your installation. It may be useful to copy and paste this information into support requests filed on TYPO3's support mailing lists and project issue trackers.</source>
+        <source>Review key site parameters and installation issues. You can copy this information into TYPO3 support requests or project issue trackers.</source>
       </trans-unit>
       <trans-unit id="title">
         <source>Status Report</source>
