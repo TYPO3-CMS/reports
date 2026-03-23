@@ -6,94 +6,92 @@
 <f:layout name="Module" />
 
 <f:section name="Content">
-    <div class="container">
-        <h1>{f:translate(key:'title', domain:'reports.modules.statistics')}</h1>
-        <p>{f:translate(key:'description', domain:'reports.modules.statistics')}</p>
+    <h1>{f:translate(key:'title', domain:'reports.modules.statistics')}</h1>
+    <p>{f:translate(key:'description', domain:'reports.modules.statistics')}</p>
 
 
-        <h2>{f:translate(key:'pages', domain: 'reports.modules.statistics')}</h2>
-        <div class="table-fit">
-            <table class="table table-striped table-hover">
-                <colgroup>
-                    <col width="24">
-                    <col>
-                    <col width="150">
-                </colgroup>
-                <thead>
+    <h2>{f:translate(key:'pages', domain: 'reports.modules.statistics')}</h2>
+    <div class="table-fit">
+        <table class="table table-striped table-hover">
+            <colgroup>
+                <col width="24">
+                <col>
+                <col width="150">
+            </colgroup>
+            <thead>
+            <tr>
+                <th colspan="2"></th>
+                <th>{f:translate(key:'count', domain: 'reports.modules.statistics')}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <f:for each="{pages}" as="item" key="name">
                 <tr>
-                    <th colspan="2"></th>
-                    <th>{f:translate(key:'count', domain: 'reports.modules.statistics')}</th>
+                    <td><f:format.raw>{item.icon}</f:format.raw></td>
+                    <td>{f:translate(key:'{name}', domain: 'reports.modules.statistics')}</td>
+                    <td>{item.count}</td>
                 </tr>
-                </thead>
-                <tbody>
-                <f:for each="{pages}" as="item" key="name">
-                    <tr>
-                        <td><f:format.raw>{item.icon}</f:format.raw></td>
-                        <td>{f:translate(key:'{name}', domain: 'reports.modules.statistics')}</td>
-                        <td>{item.count}</td>
-                    </tr>
-                </f:for>
-                </tbody>
-            </table>
-        </div>
+            </f:for>
+            </tbody>
+        </table>
+    </div>
 
-        <h2>{f:translate(key:'doktype', domain: 'reports.modules.statistics')}</h2>
-        <div class="table-fit">
-            <table class="table table-striped table-hover">
-                <colgroup>
-                    <col width="24">
-                    <col>
-                    <col width="150">
-                </colgroup>
-                <thead>
+    <h2>{f:translate(key:'doktype', domain: 'reports.modules.statistics')}</h2>
+    <div class="table-fit">
+        <table class="table table-striped table-hover">
+            <colgroup>
+                <col width="24">
+                <col>
+                <col width="150">
+            </colgroup>
+            <thead>
+            <tr>
+                <th></th>
+                <th>{f:translate(key:'doktype_value', domain: 'reports.modules.statistics')}</th>
+                <th>{f:translate(key:'count', domain: 'reports.modules.statistics')}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <f:for each="{doktypes}" as="item">
                 <tr>
-                    <th></th>
-                    <th>{f:translate(key:'doktype_value', domain: 'reports.modules.statistics')}</th>
-                    <th>{f:translate(key:'count', domain: 'reports.modules.statistics')}</th>
+                    <td><f:format.raw>{item.icon}</f:format.raw></td>
+                    <td>{item.title}</td>
+                    <td>{item.count}</td>
                 </tr>
-                </thead>
-                <tbody>
-                <f:for each="{doktypes}" as="item">
-                    <tr>
-                        <td><f:format.raw>{item.icon}</f:format.raw></td>
-                        <td>{item.title}</td>
-                        <td>{item.count}</td>
-                    </tr>
-                </f:for>
-                </tbody>
-            </table>
-        </div>
+            </f:for>
+            </tbody>
+        </table>
+    </div>
 
-        <h2>{f:translate(key:'tables', domain: 'reports.modules.statistics')}</h2>
-        <div class="table-fit">
-            <table class="table table-striped table-hover">
-                <colgroup>
-                    <col width="24">
-                    <col>
-                    <col width="150">
-                </colgroup>
-                <thead>
+    <h2>{f:translate(key:'tables', domain: 'reports.modules.statistics')}</h2>
+    <div class="table-fit">
+        <table class="table table-striped table-hover">
+            <colgroup>
+                <col width="24">
+                <col>
+                <col width="150">
+            </colgroup>
+            <thead>
+            <tr>
+                <th></th>
+                <th>{f:translate(domain:'reports.modules.statistics', key:'label')}</th>
+                <th>{f:translate(domain:'reports.modules.statistics', key:'tablename')}</th>
+                <th>{f:translate(domain:'reports.modules.statistics', key:'total_lost')}</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <f:for each="{tables}" key="name" as="item">
                 <tr>
-                    <th></th>
-                    <th>{f:translate(domain:'reports.modules.statistics', key:'label')}</th>
-                    <th>{f:translate(domain:'reports.modules.statistics', key:'tablename')}</th>
-                    <th>{f:translate(domain:'reports.modules.statistics', key:'total_lost')}</th>
-                    <th></th>
+                    <td><f:format.raw>{item.icon}</f:format.raw></td>
+                    <td>{item.title}</td>
+                    <td>{name}</td>
+                    <td>{item.count}</td>
+                    <td><f:format.raw>{item.lostRecords}</f:format.raw></td>
                 </tr>
-                </thead>
-                <tbody>
-                <f:for each="{tables}" key="name" as="item">
-                    <tr>
-                        <td><f:format.raw>{item.icon}</f:format.raw></td>
-                        <td>{item.title}</td>
-                        <td>{name}</td>
-                        <td>{item.count}</td>
-                        <td><f:format.raw>{item.lostRecords}</f:format.raw></td>
-                    </tr>
-                </f:for>
-                </tbody>
-            </table>
-        </div>
+            </f:for>
+            </tbody>
+        </table>
     </div>
 </f:section>
 

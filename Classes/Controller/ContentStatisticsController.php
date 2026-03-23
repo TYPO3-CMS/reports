@@ -23,6 +23,7 @@ use TYPO3\CMS\Backend\Attribute\AsController;
 use TYPO3\CMS\Backend\Routing\UriBuilder;
 use TYPO3\CMS\Backend\Template\Components\ButtonBar;
 use TYPO3\CMS\Backend\Template\Components\ComponentFactory;
+use TYPO3\CMS\Backend\Template\Enum\ModuleLayout;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
 use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Reports\Service\ContentStatisticsService;
@@ -44,6 +45,7 @@ final readonly class ContentStatisticsController
     {
         $languageService = $this->getLanguageService();
         $view = $this->moduleTemplateFactory->create($request);
+        $view->setLayout(ModuleLayout::NORMAL);
         $view->setTitle(
             $languageService->sL('reports.messages:mlang_tabs_tab'),
             $languageService->sL('reports.messages:contentStatistics.title')

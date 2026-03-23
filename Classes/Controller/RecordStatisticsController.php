@@ -20,6 +20,7 @@ namespace TYPO3\CMS\Reports\Controller;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Backend\Attribute\AsController;
+use TYPO3\CMS\Backend\Template\Enum\ModuleLayout;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
 use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Reports\Service\RecordStatisticsService;
@@ -42,6 +43,7 @@ final readonly class RecordStatisticsController
     {
         $languageService = $this->getLanguageService();
         $view = $this->moduleTemplateFactory->create($request);
+        $view->setLayout(ModuleLayout::NORMAL);
         $view->setTitle(
             $languageService->translate('title', 'reports.modules.overview'),
             $languageService->translate('title', 'reports.modules.statistics')
